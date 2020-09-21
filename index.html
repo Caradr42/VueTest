@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Vuejs Test</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/grid/">
+	<!-- Si utilizamos componentes de Bootstrap que requieran Javascript agregar estos tres archivos -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- VueJs -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<script> 
+		var app = new Vue({ el: '#app', data: { message: 'Hello Vue!' } }) 
+	</script>
+
+	<!-- Custom stlylesheet -->
+	<!-- <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
+</head>
+
+<body>
+
+<div class="container" style="margin-left: 40%; margin-top: 50px;">
+	<div id="app"> 
+		<p>{{ message }}</p>
+	</div>
+	<div>
+		<input v-model="name">
+	</div>
+</div>
+
+<div id="hide">
+    <button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/hidden</button>
+    <p v-if="!isHidden">Haga clic en el boton para esconder o aparecer</p>
+</div>
+	
+</body>
+
+</html>
