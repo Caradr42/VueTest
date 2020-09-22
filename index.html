@@ -21,30 +21,77 @@
 	<!-- VueJs -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-	<script> 
-		var app = new Vue({ el: '#app', data: { message: 'Hello Vue!' } }) 
-	</script>
-
 	<!-- Custom stlylesheet -->
 	<!-- <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
 </head>
 
 <body>
-
-<div class="container" style="margin-left: 40%; margin-top: 50px;">
-	<div id="app"> 
-		<p>{{ message }}</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12"></div> 
+				<H1 class="display-3">Pasatiempos</H1>
+			</div>
+		</div>
 	</div>
-	<div>
-		<input v-model="name">
-	</div>
-</div>
-
-<div id="hide">
-    <button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/hidden</button>
-    <p v-if="!isHidden">Haga clic en el boton para esconder o aparecer</p>
-</div>
 	
+	<div id="app" class="container" style="/*margin-left: 40%;*/ margin-top: 10px;">
+		<div class="row">
+			<div class="col-md-6" > 
+				<p class="lead">{{ message }}</p>
+			</div>
+
+			<div class="col-md-6">
+				<textarea class="form-control" rows="2" v-model="message"></textarea>
+			</div>
+		</div>
+		<hr>
+		<div class="row"  style="margin-top: 30px;">
+			<div class="col-md-6" > 
+				<input type="text" class="form-control"  v-model="item">
+				<p></p>
+				<button @click="if(item){items.push(item);item='';}" type="button" class="btn btn-dark">Añadir pasatiempo</button>
+
+				<button class="btn btn-primary" v-on:click="isHidden = !isHidden">Ocultar lista</button>
+			</div>
+			
+			<div class="col-md-6" >
+				<table v-if="!isHidden" class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Pasatiempos: </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="pasatiempo in items"><td scope="row">{{ pasatiempo }}</td></li>
+					</tbody>
+				</ul>
+			</div>	
+
+				
+		</div>
+		<!-- <div id="hide">
+			<button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/hidden</button>
+			<p v-if="!isHidden">Haga clic en el boton para esconder o aparecer</p>
+		</div> -->
+
+	</div>
 </body>
+
+<script> 
+	//console.log("AAAAA")
+	var app = 	new Vue({
+						el: '#app', 
+						data: { 
+							message: 'Hello Vue!',
+							item: '',
+							items: [
+								'Videojuegos',
+								'Peliculas',
+								'Programación'
+							],
+							isHidden: false
+						}
+				});
+</script>
 
 </html>
