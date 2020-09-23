@@ -29,7 +29,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12"></div> 
-				<H1 class="display-3">Pasatiempos</H1>
+				<H1 class="display-3">Turismo Mexico</H1>
 			</div>
 		</div>
 	</div>
@@ -41,28 +41,33 @@
 			</div>
 
 			<div class="col-md-6">
-				<textarea class="form-control" rows="2" v-model="message"></textarea>
+				<textarea  v-if="editar" class="form-control" rows="4" v-model="message"></textarea>
+				<p></p>
+				<button class="btn btn-primary" v-on:click="editar = !editar">Editar</button>
 			</div>
 		</div>
 		<hr>
 		<div class="row"  style="margin-top: 30px;">
-			<div class="col-md-6" > 
+			<div class="col-md-12" > 
 				<input type="text" class="form-control"  v-model="item">
 				<p></p>
-				<button @click="if(item){items.push(item);item='';}" type="button" class="btn btn-dark">Añadir pasatiempo</button>
+				<button @click="if(item){items.push(item);item='';}" type="button" class="btn btn-dark">Añadir lugar turístico</button>
 
 				<button class="btn btn-primary" v-on:click="isHidden = !isHidden">Ocultar lista</button>
 			</div>
 			
-			<div class="col-md-6" >
+			<div class="col-md-12" style="margin-top: 40px;">
 				<table v-if="!isHidden" class="table table-striped">
 					<thead>
 						<tr>
-							<th scope="col">Pasatiempos: </th>
+							<th scope="col">Lugares (top 10): </th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="pasatiempo in items"><td scope="row">{{ pasatiempo }}</td></li>
+						<tr v-for="lugar in items">
+							<td scope="row">{{ lugar }}</td>
+							<td><button class="btn btn-success">Ver mas</button></td>
+						</tr>
 					</tbody>
 				</ul>
 			</div>	
@@ -73,21 +78,6 @@
 	</div>
 </body>
 
-<script> 
-	//console.log("AAAAA")
-	var app = 	new Vue({
-						el: '#app', 
-						data: { 
-							message: 'Hello Vue!',
-							item: '',
-							items: [
-								'Videojuegos',
-								'Peliculas',
-								'Programación'
-							],
-							isHidden: false
-						}
-				});
-</script>
+<script src="app.js"> </script>
 
 </html>
